@@ -2,7 +2,7 @@ from flask import Flask , render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-DB_URL = 'postgresql+psycopg2://{user}:{pw}@{url}/{db}'.format(user='postgres',pw='postgres',url='127.0.0.1:5432',db='task_master')
+DB_URL = 'postgresql+psycopg2://{user}:{pw}@{url}/{db}'.format(user='username',pw='password',url='127.0.0.1:5432',db='database name')
 
 app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # silence the deprecation warning
