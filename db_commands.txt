@@ -1,0 +1,34 @@
+
+Postgres with Flask :
+
+1.
+pip install flask_sqlalchemy
+pip install flask_script
+pip install flask_migrate
+pip install psycopg2-binary
+
+2.
+create database in postgresql with CREATE DATABASE database_name command
+
+3.
+Link flask and postgresql database as following :
+DB_URL = 'postgresql+psycopg2://{user}:{pw}@{url}/{db}'.format(user='postgres',pw='postgres',url='127.0.0.1:5432',db='task_master')
+app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # silence the deprecation warning
+db = SQLAlchemy(app)
+
+4.
+create table model in models.py file.
+
+5.
+create manage.py file for executing below commands
+
+6.
+python manage.py db init -  create migrations file
+python manage.py db migrate - create table
+python manage.py db upgrade - if any changes made in table model then need to raise this command
+
+
+INSERT command of Postgresql :
+
+insert into task(content,date_created) values('task 6',CURRENT_TIMESTAMP);
